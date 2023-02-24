@@ -8,7 +8,11 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/chris-hly/juuust-react-icon.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chris-hly/helios-icon.git",
+    "directory": "packages/helios-react-icon"
+  },
   "author": "chris-hly",
   "keywords": [
     "react",
@@ -20,9 +24,9 @@
     "design"
   ],
   "bugs": {
-    "url": "https://github.com/chris-hly/juuust-react-icon/issues"
+    "url": "https://github.com/chris-hly/helios-icon/issues"
   },
-  "homepage": "https://github.com/chris-hly/juuust-react-icon#readme",
+  "homepage": "https://github.com/chris-hly/helios-icon#readme",
   "scripts": {
     "fetch": "node bin/fetchSVG.js",
     "generate": "sudo rm -rf src/icons && node bin/build.js",
