@@ -26,15 +26,15 @@ jobs:
       env:
         FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-     - run: cd packages/helios-react-icon
+   - run: cd packages/helios-react-icon
      - run: yarn generate
      - run: yarn build
     # - run: yarn build:bundle
     # - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
     # - run: yarn publish
-#       env:
-#         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-#     - run: yarn build
+      # env:
+       # NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+       # - run: yarn build
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v1.2.5
       with:
