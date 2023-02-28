@@ -1,5 +1,4 @@
 name: icon-automation
-run-name: ${{ github.actor }}
 on:
   push:
     branches:
@@ -17,8 +16,8 @@ jobs:
 
     - uses: actions/setup-node@v1
       with:
-        node-version: '12.x' 
-    - run: yarn install 
+        node-version: '10.x'
+    - run: yarn install
     - name: Figma Action
       uses: primer/figma-action@v1.0.0-alpha.2
       with:
@@ -26,18 +25,17 @@ jobs:
       env:
         FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-      - run: cd packages/helios-react-icon
-        - run: yarn generate
-        - run: yarn build
-    # - run: yarn build:bundle
+    - run: cd packages/helios-react-icon    
+    - run: yarn generate
+    - run: yarn build:bundle
     # - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
     # - run: yarn publish
-      # env:
-       # NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-       # - run: yarn build
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - run: yarn build
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v1.2.5
       with:
-        build_dir: packages/helios-react-icon/docs
+        build_dir: docs
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
