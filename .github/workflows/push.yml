@@ -1,15 +1,15 @@
-name: icon-automation
+name: helios-icon
+run-name: ${{ github.actor }}
 on:
   push:
     branches:
     - master
-    # file paths to consider in the event. Optional; defaults to all.
     paths:
       - package.json
 
 jobs:
   icon_automation:
-    name: figma icon automation
+    name: helios icon automation
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -25,15 +25,13 @@ jobs:
       env:
         FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-     - run: cd packages/helios-react-icon
-     - run: yarn generate
-     - run: yarn build
-    # - run: yarn build:bundle
+    - run: yarn workspace helios-react-icon generate
+    - run: yarn workspace helios-react-icon build:bundle
     # - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
     # - run: yarn publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    - run: yarn build
+      # env:
+        # NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - run: yarn workspace helios-react-icon build
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v1.2.5
       with:
