@@ -25,6 +25,7 @@ jobs:
       env:
         FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+    - run: yarn workspace helios-react-icon fetch    
     - run: yarn workspace helios-react-icon generate
     - run: yarn workspace helios-react-icon build:bundle
     # - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
