@@ -35,6 +35,6 @@ jobs:
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v1.2.5
       with:
-        build_dir: docs
+        build_dir: packages/helios-react-icon/docs
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
