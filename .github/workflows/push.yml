@@ -17,9 +17,12 @@ jobs:
       uses: primer/figma-action@v1.0.0-alpha.2
       with:
         args: "format=svg outputDir=./src/"
-      env:
-        FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
-        FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+    - name: create env file
+      run: |
+        touch .env
+        echo FIGMA_FILE_URL=${{ secrets.FIGMA_FILE_URL }} >> .env
+        echo FIGMA_TOKEN=${{ secrets.FIGMA_TOKEN }} >> .env
+
     - run: yarn workspace helios-react-icon fetch    
     - run: yarn workspace helios-react-icon generate
     - run: yarn workspace helios-react-icon build:bundle
