@@ -1,11 +1,6 @@
 name: helios-icon
 run-name: ${{ github.actor }}
-on:
-  push:
-    branches:
-    - master
-    paths:
-      - package.json
+on: [push, pull_request]
 
 jobs:
   icon_automation:
