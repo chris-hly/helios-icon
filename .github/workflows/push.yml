@@ -17,13 +17,9 @@ jobs:
       uses: primer/figma-action@v1.0.0-alpha.2
       with:
         args: "format=svg outputDir=./src/"
-    - name: create env file
-      run: |
-        touch .env
-        echo FIGMA_FILE_URL=${{ secrets.FIGMA_FILE_URL }} >> .env
-        echo FIGMA_TOKEN=${{ secrets.FIGMA_TOKEN }} >> .env
-
-    - run: yarn workspace helios-react-icon fetch    
+      env:
+        FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
+        FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
     - run: yarn workspace helios-react-icon generate
     - run: yarn workspace helios-react-icon build:bundle
     # - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
