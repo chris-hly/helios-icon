@@ -1,6 +1,6 @@
 {
   "name": "helios",
-  "version": "1.18.7",
+  "version": "1.18.9",
   "main": "index.js",
   "license": "MIT",
   "private": true,
