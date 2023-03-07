@@ -4,6 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "update": "node scripts/update.js" 
+  },
   "workspaces": [
     "packages/helios-react-icon",
     "packages/helios-vue-icon"

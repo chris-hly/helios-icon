@@ -4,8 +4,11 @@ const {join, resolve} = require('path')
 const Figma = require('figma-js')
 const PQueue = require('p-queue')
 require('dotenv').config()
-const {FIGMA_TOKEN, FIGMA_FILE_URL} = process.env
-console.log(FIGMA_TOKEN,FIGMA_FILE_URL)
+let {FIGMA_TOKEN, FIGMA_FILE_URL} = process.env
+
+FIGMA_TOKEN =figd_BflaoC8dtrraW394y5sGNr8IlYQcJY2hPjag29R5
+
+FIGMA_FILE_URL =https://www.figma.com/file/jRCV2SI4k3k33wG93ZIEzw/Helios-icon?node-id=74%3A95&t=3OmN4KVIq5974cII-4
 
 const options = {
   format: 'svg',

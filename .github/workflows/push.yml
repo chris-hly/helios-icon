@@ -22,10 +22,11 @@ jobs:
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
     - run: yarn workspace helios-react-icon generate
     - run: yarn workspace helios-react-icon build:bundle
-    # - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
-    # - run: yarn publish
-      # env:
-        # NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+    - run: yarn update
+    - run: yarn workspace helios-react-icon publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     - run: yarn workspace helios-react-icon build
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v1.2.5
