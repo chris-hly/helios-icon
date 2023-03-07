@@ -1,6 +1,6 @@
 {
   "name": "helios-react-icon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Icon automation workflow with Figma",
   "main": "dist/helios-react-icon.cjs.js",
   "module": "dist/helios-react-icon.esm.js",
